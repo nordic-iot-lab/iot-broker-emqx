@@ -1,0 +1,84 @@
+# EMQX Isolated — multi-tenant MQTT broker with project isolation
+#
+# Deploy:  docker compose up -d
+# Check:   docker compose logs emqx
+# Console: https://<host>:18083  (admin / admin1234)
+#
+# ── Projects & permissions ─────────────────────────────────
+#   sensor+nrf:  users coap-server, nrf, sensor-device → sensor/#, industrial/#
+#   vessel:      user vessel → vessel/#
+#   dashboard:   use coap-server user → cannot see vessel/#
+#
+# ── Override PG settings via .env file or env vars:
+#   PG_HOST=10.0.0.5 PG_PORT=5432 docker compose up -d
+
+services:
+  emqx:
+    image: emqx/emqx:6.0.0
+    container_name: emqx
+    restart: unless-stopped
+    ports:
+      - "1883:1883"   # MQTT TCP
+      - "8083:8083"   # MQTT WebSocket
+      - "8084:8084"   # MQTT WSS
+    volumes:
+      - ./emqx/emqx.conf:/opt/emqx/etc/emqx.conf:ro
+      - ./emqx/acl.conf:/opt/emqx/data/authz/acl.conf:ro
+      - emqx_data:/opt/emqx/data
+      - emqx_log:/opt/emqx/log
+    environment:
+      - EMQX_DASHBOARD__DEFAULT_USERNAME=admin
+      - EMQX_DASHBOARD__DEFAULT_PASSWORD=admin1234
+      - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__SERVER=${PG_HOST:-postgres}:${PG_PORT:-5432}
+      - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__DATABASE=${PG_DB:-mqtt}
+      - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__USERNAME=${PG_USER:-mqtt}
+      - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__PASSWORD=${PG_PASS:-mqttpass}
+    networks:
+      - iot
+    healthcheck:
+      test: ["CMD", "emqx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  # ── PostgreSQL (optional — remove if using external PG) ──
+  postgres:
+    image: postgres:16-alpine
+    container_name: emqx-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mqtt
+      POSTGRES_PASSWORD: mqttpass
+      POSTGRES_DB: mqtt
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./init/01-init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    networks:
+      - iot
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "mqtt", "-d", "mqtt"]
+      interval: 5s
+      retries: 10
+
+  # ── User bootstrap (creates MQTT users after EMQX starts) ─
+  emqx-init:
+    image: curlimages/curl:latest
+    container_name: emqx-init
+    depends_on:
+      emqx:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "/init/setup.sh"]
+    volumes:
+      - ./init/setup.sh:/init/setup.sh:ro
+    networks:
+      - iot
+
+networks:
+  iot:
+    name: iot
+    driver: bridge
+
+volumes:
+  emqx_data:
+  emqx_log:
+  pg_data:

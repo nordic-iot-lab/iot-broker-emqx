@@ -1,0 +1,11 @@
+# EMQX data volumes
+emqx_data/
+emqx_log/
+pg_data/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
