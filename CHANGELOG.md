@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.1.1] - 2026-05-18
+
+### Added
+
+- Added bilingual Chinese/English GitHub README documentation.
+- Added a visual broker layout diagram for the Docker, EMQX, ACL, and PostgreSQL deployment.
+- Documented the Nordic IoT Lab organization release baseline and repository role.
+
 ## [0.1.0] - 2026-05-17
 
 ### Added

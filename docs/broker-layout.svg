@@ -1,0 +1,47 @@
+<svg width="1100" height="520" viewBox="0 0 1100 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">EMQX isolated broker layout</title>
+  <desc id="desc">Docker Compose runs EMQX, PostgreSQL, and a user bootstrap service with MQTT listeners and ACL-separated topic spaces.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1100" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141821"/>
+      <stop offset="1" stop-color="#1D6A73"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2L10 6L2 10" stroke="#FFB84D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="520" rx="28" fill="url(#bg)"/>
+  <text x="60" y="72" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="800">IoT Broker EMQX</text>
+  <text x="62" y="108" fill="#D1F2EF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18">Docker-first MQTT broker baseline with ACL isolation and PostgreSQL persistence</text>
+  <g filter="url(#shadow)">
+    <rect x="76" y="172" width="230" height="224" rx="24" fill="#FAFFFE"/>
+    <text x="110" y="222" fill="#12252B" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="800">Clients</text>
+    <text x="110" y="265" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">nRF devices</text>
+    <text x="110" y="294" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">CoAP bridge</text>
+    <text x="110" y="323" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">Dashboard</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="430" y="132" width="260" height="304" rx="26" fill="#FAFFFE"/>
+    <text x="466" y="184" fill="#12252B" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="800">EMQX 6</text>
+    <rect x="466" y="220" width="188" height="34" rx="17" fill="#DDF7F5"/>
+    <text x="500" y="243" fill="#0E5964" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">MQTT 1883</text>
+    <rect x="466" y="268" width="188" height="34" rx="17" fill="#DDF7F5"/>
+    <text x="492" y="291" fill="#0E5964" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">WebSocket 8083</text>
+    <rect x="466" y="316" width="188" height="34" rx="17" fill="#FFE8B3"/>
+    <text x="502" y="339" fill="#5D3A05" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="800">WSS 8084</text>
+    <text x="466" y="390" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">file ACL + built-in users</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="814" y="172" width="230" height="224" rx="24" fill="#FAFFFE"/>
+    <text x="848" y="222" fill="#12252B" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="800">Storage</text>
+    <text x="848" y="265" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">PostgreSQL</text>
+    <text x="848" y="294" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">mqtt_messages</text>
+    <text x="848" y="323" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">rule-engine persistence</text>
+  </g>
+  <path d="M322 284H414" stroke="#FFB84D" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M706 284H798" stroke="#FFB84D" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+</svg>
+
