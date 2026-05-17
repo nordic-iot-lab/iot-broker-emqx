@@ -3,6 +3,9 @@ emqx_data/
 emqx_log/
 pg_data/
 
+# Local environment
+.env
+
 # macOS
 .DS_Store
 

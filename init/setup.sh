@@ -3,7 +3,7 @@
 # EMQX 6.0 REST API: POST /api/v5/authentication/password_based:built_in_database/users
 
 EMQX_API="http://emqx:18083/api/v5"
-AUTH="admin:admin1234"
+AUTH="${EMQX_DASHBOARD_USER:-admin}:${EMQX_DASHBOARD_PASS:?set EMQX_DASHBOARD_PASS in .env}"
 
 echo "Waiting for EMQX API..."
 until curl -sf -o /dev/null "$EMQX_API/status"; do
@@ -28,9 +28,9 @@ create_user() {
   fi
 }
 
-create_user "coap-server"   "coap123456"
-create_user "nrf"           "nrf123456"
-create_user "sensor-device" "sensor123456"
-create_user "vessel"        "vessel123456"
+create_user "${MQTT_COAP_SERVER_USER:-coap-server}"     "${MQTT_COAP_SERVER_PASS:?set MQTT_COAP_SERVER_PASS in .env}"
+create_user "${MQTT_NRF_USER:-nrf}"                     "${MQTT_NRF_PASS:?set MQTT_NRF_PASS in .env}"
+create_user "${MQTT_SENSOR_DEVICE_USER:-sensor-device}" "${MQTT_SENSOR_DEVICE_PASS:?set MQTT_SENSOR_DEVICE_PASS in .env}"
+create_user "${MQTT_VESSEL_USER:-vessel}"               "${MQTT_VESSEL_PASS:?set MQTT_VESSEL_PASS in .env}"
 
 echo "Users bootstrapped."

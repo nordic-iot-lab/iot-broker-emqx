@@ -2,7 +2,7 @@
 #
 # Deploy:  docker compose up -d
 # Check:   docker compose logs emqx
-# Console: https://<host>:18083  (admin / admin1234)
+# Console: https://<host>:18083  (credentials from .env)
 #
 # ── Projects & permissions ─────────────────────────────────
 #   sensor+nrf:  users coap-server, nrf, sensor-device → sensor/#, industrial/#
@@ -27,12 +27,12 @@ services:
       - emqx_data:/opt/emqx/data
       - emqx_log:/opt/emqx/log
     environment:
-      - EMQX_DASHBOARD__DEFAULT_USERNAME=admin
-      - EMQX_DASHBOARD__DEFAULT_PASSWORD=admin1234
+      - EMQX_DASHBOARD__DEFAULT_USERNAME=${EMQX_DASHBOARD_USER:-admin}
+      - EMQX_DASHBOARD__DEFAULT_PASSWORD=${EMQX_DASHBOARD_PASS:?set EMQX_DASHBOARD_PASS in .env}
       - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__SERVER=${PG_HOST:-postgres}:${PG_PORT:-5432}
       - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__DATABASE=${PG_DB:-mqtt}
       - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__USERNAME=${PG_USER:-mqtt}
-      - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__PASSWORD=${PG_PASS:-mqttpass}
+      - EMQX_CONNECTORS__PGSQL__POSTGRES_MQTT__PASSWORD=${PG_PASS:?set PG_PASS in .env}
     networks:
       - iot
     healthcheck:
@@ -48,7 +48,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: mqtt
-      POSTGRES_PASSWORD: mqttpass
+      POSTGRES_PASSWORD: ${PG_PASS:?set PG_PASS in .env}
       POSTGRES_DB: mqtt
     volumes:
       - pg_data:/var/lib/postgresql/data
@@ -68,6 +68,8 @@ services:
       emqx:
         condition: service_healthy
     entrypoint: ["/bin/sh", "/init/setup.sh"]
+    env_file:
+      - .env
     volumes:
       - ./init/setup.sh:/init/setup.sh:ro
     networks:
