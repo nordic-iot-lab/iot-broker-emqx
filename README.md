@@ -1,6 +1,6 @@
 # IoT Broker EMQX
 
-![Broker layout](docs/broker-layout.svg)
+![Broker layout](docs/broker-layout.png)
 
 > 中文：Docker 化的 EMQX MQTT broker 基线，提供项目级 ACL 隔离、内置用户初始化和 PostgreSQL 消息持久化。
 >
@@ -82,7 +82,7 @@ The ACL file is intentionally simple and file-based so it is easy to audit durin
 Current broker baseline:
 
 ```text
-v0.1.1
+v0.1.2
 ```
 
 Previous server deployment baseline: `v0.1.0`.

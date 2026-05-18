@@ -1,47 +1,179 @@
-<svg width="1100" height="520" viewBox="0 0 1100 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">EMQX isolated broker layout</title>
-  <desc id="desc">Docker Compose runs EMQX, PostgreSQL, and a user bootstrap service with MQTT listeners and ACL-separated topic spaces.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1100" y2="520" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#141821"/>
-      <stop offset="1" stop-color="#1D6A73"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#000000" flood-opacity="0.28"/>
-    </filter>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M2 2L10 6L2 10" stroke="#FFB84D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-  </defs>
-  <rect width="1100" height="520" rx="28" fill="url(#bg)"/>
-  <text x="60" y="72" fill="#FFFFFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="800">IoT Broker EMQX</text>
-  <text x="62" y="108" fill="#D1F2EF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18">Docker-first MQTT broker baseline with ACL isolation and PostgreSQL persistence</text>
-  <g filter="url(#shadow)">
-    <rect x="76" y="172" width="230" height="224" rx="24" fill="#FAFFFE"/>
-    <text x="110" y="222" fill="#12252B" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="800">Clients</text>
-    <text x="110" y="265" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">nRF devices</text>
-    <text x="110" y="294" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">CoAP bridge</text>
-    <text x="110" y="323" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">Dashboard</text>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="550.08pt" height="252.792pt" viewBox="0 0 550.08 252.792" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-05-18T11:57:05.715267</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 252.792
+L 550.08 252.792
+L 550.08 0
+L 0 0
+z
+" style="fill: #ffffff"/>
   </g>
-  <g filter="url(#shadow)">
-    <rect x="430" y="132" width="260" height="304" rx="26" fill="#FAFFFE"/>
-    <text x="466" y="184" fill="#12252B" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="800">EMQX 6</text>
-    <rect x="466" y="220" width="188" height="34" rx="17" fill="#DDF7F5"/>
-    <text x="500" y="243" fill="#0E5964" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">MQTT 1883</text>
-    <rect x="466" y="268" width="188" height="34" rx="17" fill="#DDF7F5"/>
-    <text x="492" y="291" fill="#0E5964" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">WebSocket 8083</text>
-    <rect x="466" y="316" width="188" height="34" rx="17" fill="#FFE8B3"/>
-    <text x="502" y="339" fill="#5D3A05" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="800">WSS 8084</text>
-    <text x="466" y="390" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">file ACL + built-in users</text>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 43.62624 141.176304
+L 142.19136 141.176304
+Q 155.58336 141.176304 155.58336 135.216504
+L 155.58336 98.504136
+Q 155.58336 92.544336 142.19136 92.544336
+L 43.62624 92.544336
+Q 30.23424 92.544336 30.23424 98.504136
+L 30.23424 135.216504
+Q 30.23424 141.176304 43.62624 141.176304
+z
+" clip-path="url(#p1fc446868f)" style="fill: #d8f0f1; stroke: #2f8f9d; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 217.72224 141.176304
+L 321.64416 141.176304
+Q 335.03616 141.176304 335.03616 135.216504
+L 335.03616 98.504136
+Q 335.03616 92.544336 321.64416 92.544336
+L 217.72224 92.544336
+Q 204.33024 92.544336 204.33024 98.504136
+L 204.33024 135.216504
+Q 204.33024 141.176304 217.72224 141.176304
+z
+" clip-path="url(#p1fc446868f)" style="fill: #dce7f6; stroke: #315f9d; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 394.49664 141.176304
+L 498.41856 141.176304
+Q 511.81056 141.176304 511.81056 135.216504
+L 511.81056 98.504136
+Q 511.81056 92.544336 498.41856 92.544336
+L 394.49664 92.544336
+Q 381.10464 92.544336 381.10464 98.504136
+L 381.10464 135.216504
+Q 381.10464 141.176304 394.49664 141.176304
+z
+" clip-path="url(#p1fc446868f)" style="fill: #dceee2; stroke: #4f9b6e; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 162.867451 116.86032
+Q 182.63529 116.86032 200.390668 116.86032
+" clip-path="url(#p1fc446868f)" style="fill: none; stroke: #e8a23a; stroke-width: 1.8; stroke-linecap: round"/>
+    <path d="M 195.590668 114.46032
+L 200.390668 116.86032
+L 195.590668 119.26032
+z
+" clip-path="url(#p1fc446868f)" style="fill: #e8a23a; stroke: #e8a23a; stroke-width: 1.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 336.963287 116.86032
+Q 358.06982 116.86032 377.163892 116.86032
+" clip-path="url(#p1fc446868f)" style="fill: none; stroke: #e8a23a; stroke-width: 1.8; stroke-linecap: round"/>
+    <path d="M 372.363892 114.46032
+L 377.163892 116.86032
+L 372.363892 119.26032
+z
+" clip-path="url(#p1fc446868f)" style="fill: #e8a23a; stroke: #e8a23a; stroke-width: 1.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 181.83168 194.099328
+L 271.82592 194.099328
+Q 281.46816 194.099328 281.46816 189.808272
+L 281.46816 182.41812
+Q 281.46816 178.127064 271.82592 178.127064
+L 181.83168 178.127064
+Q 172.18944 178.127064 172.18944 182.41812
+L 172.18944 189.808272
+Q 172.18944 194.099328 181.83168 194.099328
+z
+" clip-path="url(#p1fc446868f)" style="fill: #d8f0f1; stroke: #12606b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 278.25408 194.099328
+L 406.81728 194.099328
+Q 416.45952 194.099328 416.45952 189.808272
+L 416.45952 182.41812
+Q 416.45952 178.127064 406.81728 178.127064
+L 278.25408 178.127064
+Q 268.61184 178.127064 268.61184 182.41812
+L 268.61184 189.808272
+Q 268.61184 194.099328 278.25408 194.099328
+z
+" clip-path="url(#p1fc446868f)" style="fill: #f9e4bc; stroke: #e8a23a; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 374.67648 194.099328
+L 464.67072 194.099328
+Q 474.31296 194.099328 474.31296 189.808272
+L 474.31296 182.41812
+Q 474.31296 178.127064 464.67072 178.127064
+L 374.67648 178.127064
+Q 365.03424 178.127064 365.03424 182.41812
+L 365.03424 189.808272
+Q 365.03424 194.099328 374.67648 194.099328
+z
+" clip-path="url(#p1fc446868f)" style="fill: #f5d9dc; stroke: #c95f66; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #1f2933; font: 700 18px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: start" x="28.6272" y="34.387583" transform="rotate(-0 28.6272 34.387583)">IoT Broker EMQX</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #64707d; font: 8.5px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: start" x="28.6272" y="38.424207" transform="rotate(-0 28.6272 38.424207)">Broker panel: containerized MQTT ingress with ACL isolation and persistence</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #1f2933; font: 700 8.2px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="92.9088" y="114.694858" transform="rotate(-0 92.9088 114.694858)">Clients</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #64707d; font: 6.8px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="92.9088" y="124.538182" transform="rotate(-0 92.9088 124.538182)">nRF + bridge + UI</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #1f2933; font: 700 8.2px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="269.6832" y="114.694858" transform="rotate(-0 269.6832 114.694858)">EMQX 6</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #64707d; font: 6.8px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="269.6832" y="124.578026" transform="rotate(-0 269.6832 124.578026)">1883 / 8083 / 8084</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #1f2933; font: 700 8.2px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="446.4576" y="114.691014" transform="rotate(-0 446.4576 114.691014)">PostgreSQL</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #64707d; font: 6.8px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="446.4576" y="124.498339" transform="rotate(-0 446.4576 124.498339)">mqtt_messages</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #12606b; font: 700 7.2px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="226.8288" y="187.860375" transform="rotate(-0 226.8288 187.860375)">sensor/#</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #e8a23a; font: 700 7.2px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="342.53568" y="187.860375" transform="rotate(-0 342.53568 187.860375)">industrial/#</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #c95f66; font: 700 7.2px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: middle" x="419.6736" y="187.860375" transform="rotate(-0 419.6736 187.860375)">vessel/#</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #64707d; font: 700 8px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: start" x="71.4816" y="69.18192" transform="rotate(-0 71.4816 69.18192)">docker compose</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #64707d; font: 700 8px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: start" x="242.8992" y="69.18192" transform="rotate(-0 242.8992 69.18192)">file ACL + built-in users</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #64707d; font: 700 8px 'Arial', 'DejaVu Sans', 'Liberation Sans', sans-serif; text-anchor: start" x="414.3168" y="69.18192" transform="rotate(-0 414.3168 69.18192)">rule-engine persistence</text>
+   </g>
   </g>
-  <g filter="url(#shadow)">
-    <rect x="814" y="172" width="230" height="224" rx="24" fill="#FAFFFE"/>
-    <text x="848" y="222" fill="#12252B" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="800">Storage</text>
-    <text x="848" y="265" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">PostgreSQL</text>
-    <text x="848" y="294" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">mqtt_messages</text>
-    <text x="848" y="323" fill="#415C63" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">rule-engine persistence</text>
-  </g>
-  <path d="M322 284H414" stroke="#FFB84D" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M706 284H798" stroke="#FFB84D" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+ </g>
+ <defs>
+  <clipPath id="p1fc446868f">
+   <rect x="7.2" y="7.2" width="535.68" height="238.392"/>
+  </clipPath>
+ </defs>
 </svg>
-

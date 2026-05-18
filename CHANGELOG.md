@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.1.2] - 2026-05-18
+
+### Added
+
+- Regenerated the broker layout visual with the Python/matplotlib Nature-style figure workflow.
+- Added PNG, SVG, and PDF exports for GitHub display and editable documentation assets.
+
 ## [0.1.1] - 2026-05-18
 
 ### Added
