@@ -13,9 +13,10 @@
 当前包含：
 
 - MQTT TCP `1883`
+- MQTT TLS `8883`
 - MQTT WebSocket `8083`
 - MQTT WSS `8084`
-- EMQX Dashboard 账号通过 `.env` 配置
+- EMQX Dashboard 账号通过 `.env` 配置，Dashboard 端口 `18083` 不直接发布到宿主机
 - `init/setup.sh` 自动创建内置 MQTT 用户
 - `emqx/acl.conf` 做 topic 级访问控制
 - PostgreSQL `mqtt_messages` 表保存 MQTT 消息
@@ -28,9 +29,10 @@ This repository provides the server/broker baseline for Nordic IoT Lab. It deplo
 Included:
 
 - MQTT TCP `1883`
+- MQTT TLS `8883`
 - MQTT WebSocket `8083`
 - MQTT WSS `8084`
-- EMQX Dashboard credentials from `.env`
+- EMQX Dashboard credentials from `.env`; dashboard port `18083` is not published to the host
 - Built-in MQTT users created by `init/setup.sh`
 - Topic ACL isolation via `emqx/acl.conf`
 - MQTT persistence into PostgreSQL table `mqtt_messages`
@@ -65,14 +67,20 @@ set +a
 
 Default project spaces:
 
-- `sensor/#` and `industrial/#`: nRF devices, sensor devices, CoAP bridge, and dashboard
-- `vessel/#`: vessel project user only
+- `sensor/#`: nRF devices, sensor devices, and CoAP bridge publish telemetry
+- `industrial/#`: nRF devices publish industrial tag telemetry
+- `dashboard`: subscribe-only user for `sensor/#` and `industrial/#`
+- `vessel/#`: vessel project publisher only
 
 The ACL file is intentionally simple and file-based so it is easy to audit during early NB-IoT testing.
+Device accounts are publish-only by default; dashboard readers should use the dedicated
+`dashboard` account.
 
 ## Production Notes / 生产提示
 
-- Put TLS termination for MQTT/CoAP/Web domains in front of this stack if needed.
+- MQTT TLS is exposed on `8883` using the EMQX image certificate path by default; replace
+  certificates with production broker certificates before exposing it publicly.
+- Do not publish EMQX Dashboard `18083` directly. Use a VPN or an authenticated reverse proxy.
 - Keep `.env` out of Git and rotate all default passwords before public deployment.
 - Back up PostgreSQL volume `pg_data` if message history matters.
 - Use release tags to keep broker config aligned with firmware and dashboard versions.
@@ -82,7 +90,7 @@ The ACL file is intentionally simple and file-based so it is easy to audit durin
 Current broker baseline:
 
 ```text
-v0.1.2
+v0.1.3
 ```
 
 Previous server deployment baseline: `v0.1.0`.

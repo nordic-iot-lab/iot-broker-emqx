@@ -2,12 +2,13 @@
 #
 # Deploy:  docker compose up -d
 # Check:   docker compose logs emqx
-# Console: https://<host>:18083  (credentials from .env)
+# Console: http://emqx:18083 inside the Docker network only. Do not publish 18083
+# directly to the Internet; put an authenticated reverse proxy in front if needed.
 #
 # ── Projects & permissions ─────────────────────────────────
-#   sensor+nrf:  users coap-server, nrf, sensor-device → sensor/#, industrial/#
-#   vessel:      user vessel → vessel/#
-#   dashboard:   use coap-server user → cannot see vessel/#
+#   sensor+nrf:  users coap-server, nrf, sensor-device publish telemetry only
+#   dashboard:   user dashboard subscribes to sensor/# and industrial/#
+#   vessel:      user vessel publishes to vessel/#
 #
 # ── Override PG settings via .env file or env vars:
 #   PG_HOST=10.0.0.5 PG_PORT=5432 docker compose up -d
@@ -19,11 +20,15 @@ services:
     restart: unless-stopped
     ports:
       - "1883:1883"   # MQTT TCP
+      - "8883:8883"   # MQTT TLS
       - "8083:8083"   # MQTT WebSocket
       - "8084:8084"   # MQTT WSS
+      # 18083 dashboard is intentionally not published.
     volumes:
       - ./emqx/emqx.conf:/opt/emqx/etc/emqx.conf:ro
       - ./emqx/acl.conf:/opt/emqx/data/authz/acl.conf:ro
+      # certs must contain cert.pem, key.pem, and optionally ca.pem.
+      - ./certs:/opt/emqx/etc/certs:ro
       - emqx_data:/opt/emqx/data
       - emqx_log:/opt/emqx/log
     environment:

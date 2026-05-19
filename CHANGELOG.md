@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.1.3] - 2026-05-19
+
+### Security
+
+- Added MQTT TLS listener `8883` with mounted certificate directory support.
+- Tightened ACL defaults so device accounts publish telemetry and the dashboard account subscribes only.
+- Kept EMQX Dashboard `18083` private to the Docker network by default.
+- Added dashboard MQTT user bootstrap and safer JSON generation in setup scripts.
+
 ## [0.1.2] - 2026-05-18
 
 ### Added
